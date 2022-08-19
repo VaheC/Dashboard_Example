@@ -48,21 +48,21 @@ def fill_missing(df, fillna_option):
 
     return temp_df
 
-#try:
-data_pump1 = get_data(user=user, password=password, table_name='pump1', db_name='enerwise')
-data_pump1 = fill_missing(df=data_pump1, fillna_option=fillna_option)
+try:
+    data_pump1 = get_data(user=user, password=password, table_name='pump1', db_name='enerwise')
+    data_pump1 = fill_missing(df=data_pump1, fillna_option=fillna_option)
 
-data_pump2 = get_data(user=user, password=password, table_name='pump2', db_name='enerwise')
-data_pump2 = fill_missing(df=data_pump2, fillna_option=fillna_option)
+    data_pump2 = get_data(user=user, password=password, table_name='pump2', db_name='enerwise')
+    data_pump2 = fill_missing(df=data_pump2, fillna_option=fillna_option)
 
-data_chart2 = get_data(user=user, password=password, table_name='chart2', db_name='enerwise')
+    data_chart2 = get_data(user=user, password=password, table_name='chart2', db_name='enerwise')
 
-# except:
-#     data_pump1 = load_main(filename='main_data_PUMP1.csv')
+except:
+    data_pump1 = load_main(filename='main_data_PUMP1.csv')
 
-#     data_pump2 = load_main(filename='main_data_PUMP2.csv')
+    data_pump2 = load_main(filename='main_data_PUMP2.csv')
 
-#     data_chart2 = pd.read_csv('data_chart2.csv')
+    data_chart2 = pd.read_csv('data_chart2.csv')
 
 data = data_pump1.copy()
 
