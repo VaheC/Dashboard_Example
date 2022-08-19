@@ -3,6 +3,9 @@ import dash
 from dash import html, dcc
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
+import flask
+from random import randint
+
 
 # Connect to main app.py file
 # from app import app
@@ -16,11 +19,15 @@ from components import navbar
 # Define the navbar
 nav = navbar()
 
+server = flask.Flask(__name__)
+server.secret_key = os.environ.get('secret_key', str(randint(0, 1000000)))
+
 app = dash.Dash(__name__, 
                 external_stylesheets=[dbc.themes.BOOTSTRAP], 
                 meta_tags=[{"name": "viewport", "content": "width=device-width"}],
-                suppress_callback_exceptions=True)
-server = app.server
+                suppress_callback_exceptions=True,
+                server=server)
+#server = app.server
 
 # Define the index page layout
 app.layout = html.Div([
