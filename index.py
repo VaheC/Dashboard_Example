@@ -11,7 +11,7 @@ import dash_bootstrap_components as dbc
 # from app import app
 
 # Connect to your app pages
-import preprocessing, home#, dashboard
+import preprocessing, home, dashboard
 
 # Connect the navbar to the index
 from components import navbar
@@ -40,8 +40,7 @@ app.layout = html.Div([
               [Input('url', 'pathname')])
 def display_page(pathname):
     if pathname == '/dashboard':
-        # return dashboard.layout
-        return preprocessing.layout
+        return dashboard.layout
     elif pathname == '/preprocessing':
         return preprocessing.layout
     elif pathname == '/home':
